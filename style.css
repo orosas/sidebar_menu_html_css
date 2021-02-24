@@ -1,0 +1,120 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* Nota: De incio se posiciona FUERA del viewport. 
+  Se recoloca left:0; al hacer checked en el checkbox
+      de #check */
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #042331;
+  transition: all .5s ease-in-out;
+}
+
+.sidebar header {
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  line-height: 70px;
+  background: #063146;
+  user-select: none;
+}
+
+.sidebar ul a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: #fff;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+/* Nota: Para efecto de desplazar a la der el botón */
+ul li:hover a {
+  padding-left: 50px;
+}
+
+/* Nota: Separa icono fontawesome de texto */
+.sidebar ul a i {
+  margin-right: 16px;
+}
+
+#check {
+  display: none;
+}
+
+label #btn,
+label #cancel {
+  position: absolute;
+  cursor: pointer;
+  background: #042331;
+  border-radius: 3px;
+}
+
+label #btn {
+  left: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: #fff;
+  padding: 6px 12px;
+}
+
+label #cancel {
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 4px 9px;
+  transition: all .5s ease-in-out;
+  backface-visibility: hidden;
+}
+
+/* Nota: Selecciona a la class .sidebar que está precedida
+      por un id #check:CHECKED */
+#check:checked~.sidebar {
+  left: 0;
+}
+
+/* Nota: Al hacer click no se muestra menu hamburguesa */
+#check:checked~label #btn {
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Nota: Coloca la X para cerrar menu en su lugar, cuando
+    se muestra el sidebar */
+#check:checked~label #cancel {
+  left: 195px;
+}
+
+#check:checked~section {
+  margin-left: 250px;
+}
+
+
+
+/* ****************  */
+/* Section */
+
+/* Nota: Se utiliza transition para lograr la animación al momento
+de mostrar el sidebar en #check:checked~section */
+section {
+  background: url(./img/hemant-latawa-IfQlwNqJqV8-unsplash.jpg) no-repeat center/cover;
+  height: 100vh;
+  transition: all .5s ease-in-out;
+}
